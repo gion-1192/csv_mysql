@@ -40,14 +40,3 @@ module Csv_mysql
 		end
 	end
 end
-
-#mys = Mysql_dat.new
-
-#csv_data = CSV.read('item.csv', headers: true)
-#csv_data.headers.each do |header|
-#	unless mys.subs(header).nil?
-#		mys.my_define_method(mys.subs(header))
-#	end
-#end
-
-#p mys.price
