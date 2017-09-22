@@ -1,0 +1,4 @@
+商品管理番号(商品URL),item_number
+商品名,item_name
+販売価格,price
+在庫数,quentity
