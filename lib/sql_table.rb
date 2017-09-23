@@ -14,7 +14,7 @@ module Csv_mysql
 			@len += 1	
 		end
 
-		def each_value
+		def get_rows_value
 			i = 0
 			
 			while(i < @len) do
@@ -22,9 +22,10 @@ module Csv_mysql
 				values = []
 				
 				@table.each do |key, value|
-					unless Subs.conversion(key).nil? then
-						keys.push(Subs.conversion(key))
-						values.push("\'#{value[i]}\'")
+					key_sub = Subs.conversion(key)
+					unless key_sub.nil? then
+						keys.push(key_sub)
+						values.push("\'#{value[i]}\'".gsub(",", "，"))
 					end
 				end
 

@@ -3,6 +3,7 @@ require 'csv'
 require 'yaml'
 
 require './lib/mysql_dat'
+require './lib/my_client'
 require './lib/subs'
 require './lib/analysis'
 require './lib/csv_analysis'
@@ -18,10 +19,12 @@ module Csv_mysql
 			Mysql_dat.new
 		end
 
-		def analysis
-			Analysis.new
+		def write_error_log(log)
+			File.open("./config/error_log.txt", "a") do |f|
+				f.puts(log)
+			end
 		end
 	end
 end
 
-Csv_mysql.mysql_dat.insert("./csv/item.csv")
+Csv_mysql.mysql_dat.update("./csv/item.csv")
